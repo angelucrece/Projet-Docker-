@@ -103,14 +103,13 @@ git commit -m "Mise à jour du README"
 ## Structure actuelle du projet
 
 ```text
-docker-initiation/
-│
-├── index.js
-├── package.json
-├── package-lock.json
-├── .gitignore
-└── README.md
-```
+Projet-Docker-/
+├─ app/
+│  ├─ index.js
+│  └─ package.json
+├─ Dockerfile
+├─ .dockerignore
+└─ README.md
 
 ## État d'avancement
 
