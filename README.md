@@ -34,7 +34,7 @@ git clone URL_DU_DEPOT
 Entrer dans le dossier :
 
 ```bash
-cd docker-initiation
+cd Projet-Docker-
 ```
 
 ## Installation des dépendances
