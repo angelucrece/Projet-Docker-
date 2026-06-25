@@ -130,3 +130,11 @@ docker-initiation/
 | Membre 2 | Dockerfile multi-stage |
 | Membre 3 | Registry Docker |
 | Membre 4 | Sécurité et README |
+
+## Sécurité Docker
+
+- Utilisation d’images officielles
+- Conteneur sans privilèges root
+- Fichier .dockerignore pour éviter les fichiers inutiles
+- Aucune donnée sensible dans le dépôt
+- Vérification des dépendances avec npm audit
