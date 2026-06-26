@@ -1,11 +1,12 @@
 const express = require("express");
+const path = require("path");
+
 const app = express();
-const port = 3000;
+const PORT = 3000;
 
-app.get("/", (req, res) => {
-  res.send("Hello, Docker!")
-});
+// Sert les fichiers statiques
+app.use(express.static(path.join(__dirname, "public")));
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Serveur lancé sur http://localhost:${PORT}`);
 });
