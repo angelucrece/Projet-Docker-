@@ -275,35 +275,8 @@ Si le message **Bonjour Docker !** s’affiche, cela signifie que :
 * le conteneur démarre correctement ;
 * l’application fonctionne dans Docker.
 
----
 
-## 16. État d’avancement du projet
-
-* [x] Création du projet Node.js
-* [x] Installation d’Express
-* [x] Initialisation du dépôt Git
-* [x] Création du Dockerfile multi-stage
-* [x] Création du fichier `.dockerignore`
-* [x] Construction de l’image Docker
-* [x] Exécution du conteneur Docker
-* [ ] Registry Docker
-* [ ] Sécurité Docker
-* [ ] Finalisation de la documentation
-
----
-
-## 17. Répartition des tâches
-
-| Membre   | Tâche                                  |
-| -------- | -------------------------------------- |
-| Membre 1 | Mise en place de l’application Node.js |
-| Membre 2 | Création du Dockerfile multi-stage     |
-| Membre 3 | Partie registry Docker                 |
-| Membre 4 | Partie sécurité et documentation       |
-
----
-
-## 18. Conclusion
+## . Conclusion
 
 Cette première étape du projet nous a permis de comprendre le fonctionnement général de Docker à travers un cas simple de conteneurisation d’une application Node.js.
 
@@ -316,9 +289,9 @@ Nous avons pu :
 
 La suite du travail portera sur la **publication de l’image dans une registry Docker** ainsi que sur l’étude de quelques **bonnes pratiques de sécurité** liées à la conteneurisation.
 
-## 11. Registry Docker (Docker Hub)
+## 16. Registry Docker (Docker Hub)
 
-### 11.1 Introduction
+### 16.1 Introduction
 
 Une **registry Docker** est un service qui permet de stocker, gérer et partager des images Docker. Elle joue un rôle similaire à celui de GitHub pour le code source : au lieu de stocker des fichiers de projet, elle stocke des images Docker prêtes à être exécutées.
 
@@ -326,7 +299,7 @@ Dans ce projet, nous avons utilisé **Docker Hub** comme registry afin de publie
 
 ---
 
-### 11.2 Pourquoi utiliser une registry ?
+### 16.2 Pourquoi utiliser une registry ?
 
 L'utilisation d'une registry présente plusieurs avantages :
 
@@ -338,7 +311,7 @@ L'utilisation d'une registry présente plusieurs avantages :
 
 ---
 
-### 11.3 Registry utilisée
+### 16.3 Registry utilisée
 
 Pour ce projet, la registry choisie est **Docker Hub**, qui est la registry publique officielle de Docker.
 
@@ -346,7 +319,7 @@ Notre image est publiée dans le dépôt Docker Hub de l'équipe afin qu'elle pu
 
 ---
 
-### 11.4 Processus de publication de l'image
+### 16.4 Processus de publication de l'image
 
 Après la création du Dockerfile et la construction de l'image Docker, plusieurs étapes ont été réalisées afin de publier l'image sur Docker Hub.
 
@@ -402,7 +375,7 @@ L'image est alors téléchargée localement et peut être exécutée immédiatem
 
 ---
 
-### 11.5 Schéma de fonctionnement
+### 16.5 Schéma de fonctionnement
 
 Le processus complet peut être résumé de la manière suivante :
 
@@ -430,10 +403,38 @@ Exécution du conteneur
 
 ---
 
-### 11.6 Résultat obtenu
+### 16.6 Résultat obtenu
 
 À l'issue de cette étape, l'image Docker de notre application a été publiée avec succès sur Docker Hub.
 
 L'application peut désormais être récupérée depuis n'importe quelle machine disposant de Docker, simplement à l'aide de la commande `docker pull`, sans avoir besoin de recompiler le projet.
 
 Cette approche facilite le travail collaboratif, le partage de l'application et son déploiement dans différents environnements.
+
+---
+
+## 17. État d’avancement du projet
+
+* [x] Création du projet Node.js
+* [x] Installation d’Express
+* [x] Initialisation du dépôt Git
+* [x] Création du Dockerfile multi-stage
+* [x] Création du fichier `.dockerignore`
+* [x] Construction de l’image Docker
+* [x] Exécution du conteneur Docker
+* [x] Registry Docker
+* [ ] Sécurité Docker
+* [ ] Finalisation de la documentation
+
+---
+
+## 18. Répartition des tâches
+
+| Membre   | Tâche                                  |
+| -------- | -------------------------------------- |
+| Membre 1 | Mise en place de l’application Node.js |
+| Membre 2 | Création du Dockerfile multi-stage     |
+| Membre 3 | Partie registry Docker                 |
+| Membre 4 | Partie sécurité et documentation       |
+
+---
