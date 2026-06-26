@@ -315,3 +315,125 @@ Nous avons pu :
 * vérifier l’exécution de l’application dans un environnement isolé.
 
 La suite du travail portera sur la **publication de l’image dans une registry Docker** ainsi que sur l’étude de quelques **bonnes pratiques de sécurité** liées à la conteneurisation.
+
+## 11. Registry Docker (Docker Hub)
+
+### 11.1 Introduction
+
+Une **registry Docker** est un service qui permet de stocker, gérer et partager des images Docker. Elle joue un rôle similaire à celui de GitHub pour le code source : au lieu de stocker des fichiers de projet, elle stocke des images Docker prêtes à être exécutées.
+
+Dans ce projet, nous avons utilisé **Docker Hub** comme registry afin de publier l'image de notre application Node.js. Cette publication permet à n'importe quel développeur autorisé de télécharger l'image et d'exécuter l'application sans avoir à reconstruire le projet.
+
+---
+
+### 11.2 Pourquoi utiliser une registry ?
+
+L'utilisation d'une registry présente plusieurs avantages :
+
+* Centraliser les images Docker dans un espace sécurisé.
+* Faciliter le partage de l'application entre les membres de l'équipe.
+* Éviter à chaque développeur de reconstruire l'image sur sa machine.
+* Simplifier le déploiement de l'application sur différents environnements (développement, test ou production).
+* Gérer différentes versions d'une même image grâce aux tags.
+
+---
+
+### 11.3 Registry utilisée
+
+Pour ce projet, la registry choisie est **Docker Hub**, qui est la registry publique officielle de Docker.
+
+Notre image est publiée dans le dépôt Docker Hub de l'équipe afin qu'elle puisse être téléchargée et utilisée sur une autre machine.
+
+---
+
+### 11.4 Processus de publication de l'image
+
+Après la création du Dockerfile et la construction de l'image Docker, plusieurs étapes ont été réalisées afin de publier l'image sur Docker Hub.
+
+#### Étape 1 : Connexion à Docker Hub
+
+Avant toute publication, il est nécessaire de s'authentifier auprès de Docker Hub.
+
+```bash
+docker login
+```
+
+Cette commande permet d'associer le terminal au compte Docker Hub utilisé pour publier l'image.
+
+---
+
+#### Étape 2 : Attribution d'un tag
+
+Une image construite localement doit être associée au dépôt Docker Hub grâce à un **tag**.
+
+```bash
+docker tag projet-docker angelucrece/projet_docker:1.0
+```
+
+Cette commande indique que l'image locale `projet-docker` sera publiée dans le dépôt `projet_docker` appartenant à l'utilisateur `angelucrece`.
+
+Le tag **1.0** représente la première version officielle de l'image.
+
+---
+
+#### Étape 3 : Publication de l'image
+
+Une fois l'image correctement taguée, elle est envoyée vers Docker Hub.
+
+```bash
+docker push angelucrece/projet_docker:1.0
+```
+
+Docker transfère automatiquement toutes les couches de l'image vers la registry.
+
+Une fois cette opération terminée, l'image devient disponible sur Docker Hub.
+
+---
+
+#### Étape 4 : Téléchargement de l'image
+
+Depuis une autre machine, il suffit d'exécuter la commande suivante :
+
+```bash
+docker pull angelucrece/projet_docker:1.0
+```
+
+L'image est alors téléchargée localement et peut être exécutée immédiatement avec Docker.
+
+---
+
+### 11.5 Schéma de fonctionnement
+
+Le processus complet peut être résumé de la manière suivante :
+
+```text
+Application Node.js
+        │
+        ▼
+Construction de l'image Docker
+        │
+        ▼
+Image Docker locale
+        │
+        ▼
+Tag de l'image
+        │
+        ▼
+Publication sur Docker Hub
+        │
+        ▼
+Téléchargement depuis une autre machine
+        │
+        ▼
+Exécution du conteneur
+```
+
+---
+
+### 11.6 Résultat obtenu
+
+À l'issue de cette étape, l'image Docker de notre application a été publiée avec succès sur Docker Hub.
+
+L'application peut désormais être récupérée depuis n'importe quelle machine disposant de Docker, simplement à l'aide de la commande `docker pull`, sans avoir besoin de recompiler le projet.
+
+Cette approche facilite le travail collaboratif, le partage de l'application et son déploiement dans différents environnements.
